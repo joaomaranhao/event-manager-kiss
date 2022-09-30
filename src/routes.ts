@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { CreateEventController } from './modules/events/useCases/createEvent/CreateEventController'
+import { FindEventByIdController } from './modules/events/useCases/findEventById/FindEventByIdController'
 import { CreatePersonController } from './modules/persons/useCases/createPerson/CreatePersonController'
 import { DeletePersonController } from './modules/persons/useCases/deletePerson/DeletePersonController'
 import { ListAllPersonsController } from './modules/persons/useCases/listAllPersons/ListAllPersonsController'
@@ -15,6 +16,7 @@ const listPersonByIdController = new ListPersonByIdController()
 const deletePersonController = new DeletePersonController()
 
 const createEventController = new CreateEventController()
+const findEventById = new FindEventByIdController()
 
 routes.post('/person', createPersonController.handle)
 routes.put('/person/:id', updatePersonController.handle)
@@ -23,3 +25,4 @@ routes.get('/person/:id', listPersonByIdController.handle)
 routes.delete('/person/:id', deletePersonController.handle)
 
 routes.post('/event', createEventController.handle)
+routes.get('/event/:id', findEventById.handle)
