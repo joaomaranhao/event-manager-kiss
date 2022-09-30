@@ -10,17 +10,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Person {
-  id      String  @id @default(uuid())
-  name    String
-  Event   Event?  @relation(fields: [eventId], references: [id])
-  eventId String?
+model Persons {
+  id        String   @id @default(uuid())
+  name      String
+  createdAT DateTime @default(now())
+  updatedAT DateTime @updatedAt
+  Event     Events?   @relation(fields: [eventId], references: [id])
+  eventId   String?
+
+  @@map("persons")
 }
 
-model Event {
+model Events {
   id           String   @id @default(uuid())
   title        String
   description  String
   date         DateTime
-  participants Person[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  participants Persons[]
+
+  @@map("events")
 }
