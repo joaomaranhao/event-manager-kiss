@@ -2,11 +2,6 @@
 
 ## Instruções para rodar o projeto
 
-### Pré-requisitos
-
-- [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/)
-
 ### Instalação
 
 - Clone o repositório
