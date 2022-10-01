@@ -8,6 +8,10 @@ export class FindEventByIdUseCase {
       }
     })
 
+    if (!event) {
+      throw new Error('Event not found')
+    }
+
     return event
   }
 }
