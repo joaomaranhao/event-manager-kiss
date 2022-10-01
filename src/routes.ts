@@ -11,6 +11,7 @@ import { ListAllEventsController } from './modules/events/useCases/listAllEvents
 import { DeleteEventController } from './modules/events/useCases/deleteEventUseCase/DeleteEventController'
 import { AddPersonToEventController } from './modules/events/useCases/addPersonToEventUseCase/AddPersonToEventController'
 import { ListEventParticipantsController } from './modules/events/useCases/listEventParticipants/ListEventParticipantsController'
+import { RemovePersonFromEventController } from './modules/events/useCases/removePersonFromEvent/RemovePersonFromEventController'
 
 export const routes = Router()
 
@@ -28,6 +29,7 @@ const deleteEventController = new DeleteEventController()
 
 const addPersonToEventController = new AddPersonToEventController()
 const listEventParticipantsController = new ListEventParticipantsController()
+const removePersonFromEvent = new RemovePersonFromEventController()
 
 routes.post('/person', createPersonController.handle)
 routes.put('/person/:id', updatePersonController.handle)
@@ -42,4 +44,5 @@ routes.get('/event', listAllEventsController.handle)
 routes.delete('/event/:id', deleteEventController.handle)
 
 routes.post('/event/person', addPersonToEventController.handle)
-routes.get('/event/:id/participants', listEventParticipantsController.handle)
+routes.get('/event/:id/person', listEventParticipantsController.handle)
+routes.delete('/event/:eventId/person/:personId', removePersonFromEvent.handle)
