@@ -8,6 +8,10 @@ export class FindPersonByIdUseCase {
       }
     })
 
+    if (!person) {
+      throw new Error('Person not found')
+    }
+
     return person
   }
 }
