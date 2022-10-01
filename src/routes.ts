@@ -8,6 +8,7 @@ import { ListAllPersonsController } from './modules/persons/useCases/listAllPers
 import { FindPersonByIdController } from './modules/persons/useCases/findPersonById/FindPersonByIdController'
 import { UpdatePersonController } from './modules/persons/useCases/updatePerson/UpdatePersonController'
 import { ListAllEventsController } from './modules/events/useCases/listAllEvents/ListAllEventsController'
+import { DeleteEventController } from './modules/events/useCases/deleteEventUseCase/DeleteEventController'
 
 export const routes = Router()
 
@@ -21,6 +22,7 @@ const createEventController = new CreateEventController()
 const findEventById = new FindEventByIdController()
 const updateEventController = new UpdateEventController()
 const listAllEventsController = new ListAllEventsController()
+const deleteEventController = new DeleteEventController()
 
 routes.post('/person', createPersonController.handle)
 routes.put('/person/:id', updatePersonController.handle)
@@ -32,3 +34,4 @@ routes.post('/event', createEventController.handle)
 routes.get('/event/:id', findEventById.handle)
 routes.put('/event/:id', updateEventController.handle)
 routes.get('/event', listAllEventsController.handle)
+routes.delete('/event/:id', deleteEventController.handle)
