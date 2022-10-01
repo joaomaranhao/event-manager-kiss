@@ -7,7 +7,7 @@ export class UpdateEventController {
     const { title, description, date } = request.body
 
     if (!title && !description && !date) {
-      throw new Error('Missing required fields!')
+      throw new Error('Missing required fields! title, description or date')
     }
 
     const updateEventUseCase = new UpdateEventUseCase()
