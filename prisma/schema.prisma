@@ -15,8 +15,6 @@ model Persons {
   name      String
   createdAT DateTime @default(now())
   updatedAT DateTime @updatedAt
-  Event     Events?   @relation(fields: [eventId], references: [id])
-  eventId   String?
 
   @@map("persons")
 }
@@ -28,7 +26,16 @@ model Events {
   date         DateTime
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-  participants Persons[]
 
   @@map("events")
+}
+
+model EventParticipants {
+  id        String   @id @default(uuid())
+  eventId   String
+  personId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("event_participants")
 }
