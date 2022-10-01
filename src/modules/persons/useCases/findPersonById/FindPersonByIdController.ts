@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
-import { ListPersonByIdUseCase } from './ListPersonByIdUseCase'
+import { FindPersonByIdUseCase } from './FindPersonByIdUseCase'
 
-export class ListPersonByIdController {
+export class FindPersonByIdController {
   async handle (request: Request, response: Response) {
     const { id } = request.params
 
-    const listPersonByIdUseCase = new ListPersonByIdUseCase()
+    const listPersonByIdUseCase = new FindPersonByIdUseCase()
 
     const person = await listPersonByIdUseCase.execute(id)
 

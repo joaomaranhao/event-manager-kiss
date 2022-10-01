@@ -5,7 +5,7 @@ import { UpdateEventController } from './modules/events/useCases/updateEvent/Upd
 import { CreatePersonController } from './modules/persons/useCases/createPerson/CreatePersonController'
 import { DeletePersonController } from './modules/persons/useCases/deletePerson/DeletePersonController'
 import { ListAllPersonsController } from './modules/persons/useCases/listAllPersons/ListAllPersonsController'
-import { ListPersonByIdController } from './modules/persons/useCases/listPersonById/ListPersonByIdController'
+import { FindPersonByIdController } from './modules/persons/useCases/findPersonById/FindPersonByIdController'
 import { UpdatePersonController } from './modules/persons/useCases/updatePerson/UpdatePersonController'
 
 export const routes = Router()
@@ -13,7 +13,7 @@ export const routes = Router()
 const createPersonController = new CreatePersonController()
 const updatePersonController = new UpdatePersonController()
 const listAllPersonsController = new ListAllPersonsController()
-const listPersonByIdController = new ListPersonByIdController()
+const findPersonByIdController = new FindPersonByIdController()
 const deletePersonController = new DeletePersonController()
 
 const createEventController = new CreateEventController()
@@ -23,7 +23,7 @@ const updateEventController = new UpdateEventController()
 routes.post('/person', createPersonController.handle)
 routes.put('/person/:id', updatePersonController.handle)
 routes.get('/person', listAllPersonsController.handle)
-routes.get('/person/:id', listPersonByIdController.handle)
+routes.get('/person/:id', findPersonByIdController.handle)
 routes.delete('/person/:id', deletePersonController.handle)
 
 routes.post('/event', createEventController.handle)
