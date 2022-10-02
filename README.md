@@ -39,7 +39,7 @@
 
 ### Inscrições em eventos
 
-- `GET /event/person`: lista todas as inscrições em eventos
+- `GET /event/:id/person`: lista todas as inscrições em um evento específico
 - `POST /event/person`: cria uma nova inscrição em evento
 - `DELETE /event/person/:id`: deleta uma inscrição em evento específica
 
